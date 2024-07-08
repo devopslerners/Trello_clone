@@ -28,6 +28,7 @@ function TaskTypeRadioGroup() {
     state.setNewTaskType,
     state.newTaskType,
   ]);
+  
   return (
     <div className="w-full py-5">
       <div className="mx-auto w-full max-w-md">
@@ -39,23 +40,27 @@ function TaskTypeRadioGroup() {
         >
           <div className="space-y-2">
             {types.map((type) => (
+              
               <Radio
                 key={type.id}
                 value={type.id}
+                
 
-                className={({ active, checked }) =>
-                  `${
+               className={(props) => {
+                  const { active, checked } = props as unknown as { active: boolean; checked: boolean };
+                  return `${
                     active
                       ? "ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300"
                       : ""
-                  } ${
+                  } 
+                  ${
                     checked ? `${type.color} bg-opacity-75 text-white` : ""
-                  } relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
-                }
+                  } relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`;
+                }}
               >
                 
                 
-                {({active, checked})=>(
+                {({checked})=>(
 
                 <>
                 <div className="flex w-full items-center justify-between">
